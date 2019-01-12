@@ -156,14 +156,25 @@ To achieve this goal this document of experiment targets on the mining process o
 \paragraph{} Data Mining techniques help \textbf{retail} malls and grocery stores identify and arrange most sellable items in the most attentive positions. It helps store owners to comes up with the offer which encourages customers to increase their spending. 
 Also Note that the same scenario is also applicable to local retail stores as well as e-commerce stores with slightly differ in presenting the recommendation to customers.
 
+\section{Extracting Data}
+Techniques for Extracting Data:
+\begin{itemize}
+    \item Extracting from Database
+    \item Extracting through APIs
+    \item Extracting via Web Scraping
+    \item Public Dataset
+\end{itemize}
+In this experiment the data extraction is performed from sale details of various retail market store where the data warehouse is of dimension $ 537577 \times 12 $ i.e. contains twelve $ 12 $ different attributes and $ 5,37,577 $ data records.
+
+For the simplicity cities are categorized in to three different category $ A, B, C $ and the products of sale is classified in to three different category.
 
 \section{Characterization of dataset}
-From the various Retail market events this experiment aims to a single event of data mining for \textbf{Black Friday Sale}.
+From the various Retail market events this experiment aims to a single event of data mining for \textbf{Black Friday Sale} records from various retail markets over cities categorized.
 
 \begin{itemize}
 	\item Dataset contain 5,37,577 entries of Black Friday Sale in a retail store.
 \end{itemize}
-\subsection{Sample Data}
+\subsection{Sample Dataset}
 %\inputminted[firstline=15]{text}{../src/BlackFriday.csv}
 \begin{minted}[fontsize=\small]{text}
 User_ID, Product_ID, Gender, Age, Occupation, City_Category, Stay_In_Current_City_Years, Marital_Status, Product_Category_1, Product_Category_2, Product_Category_3, Purchase
@@ -224,6 +235,9 @@ User_ID, Product_ID, Gender, Age, Occupation, City_Category, Stay_In_Current_Cit
 		\\
 		Purchase & Integer &  & 537577
 	\end{tabular}
+    \caption{Dataset Property}
+    \label{table:data-observation}
 \end{table}
 
+After merging data it is observed that for Product Category 2 and 3 there are missing values as described in Table \ref{table:data-observation}.
 \end{document}
