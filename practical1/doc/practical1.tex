@@ -138,22 +138,23 @@ Data Domain selection and Identification of Characteristics of selected Dataset 
 \section{Introduction}
 Data mining can be performed on following types of data 
 \begin{itemize}
-    \item Relational databases
-    \item Data warehouses
-    \item Advanced DB and information repositories
-    \item Object-oriented and object-relational databases
-    \item Transactional and Spatial databases
-    \item Heterogeneous and legacy databases
-    \item Multimedia and streaming database
-    \item Text databases
-    \item Text mining and Web mining 
+	\item Text databases
+	\item Object-oriented and object-relational databases
+	\item Heterogeneous and legacy databases
+	\item Relational databases
+	\item Transactional and Spatial databases
+	\item Multimedia database
+	\item Text mining and Web mining
+	\item Data warehouses
+	\item Advanced DB and information repositories
+	
 \end{itemize}
-This phase/practicals aims towards data understanding to check that business and data-mining goals are established as well as to make it appropriate for data-mining goals if applicable.
+This practical aims towards data understanding to check that business and data-mining goals are established as well as to make it appropriate for data-mining goals if applicable.
 
 \subsection{Domain Identification}
 Data Mining can be used in diverse industries such as Retail market, Communications, Insurance, Education, Manufacturing, E-commerce, Banking, Bioinformatics, Crime Investigation etc.
-To achieve this goal this document of experiment targets on the mining process on Retail market .
-\paragraph{} Data Mining techniques help \textbf{retail} malls and grocery stores identify and arrange most sellable items in the most attentive positions. It helps store owners to comes up with the offer which encourages customers to increase their spending. 
+To achieve this goal this document  targets on the mining process on Retail market .
+\paragraph{} Data Mining techniques help \textbf{retail} malls and grocery stores to identify and arrange most sellable items in the most attentive positions. It helps store owners to comes up with various offers which encourages customers to spend more. 
 Also Note that the same scenario is also applicable to local retail stores as well as e-commerce stores with slightly differ in presenting the recommendation to customers.
 
 \section{Extracting Data}
@@ -240,4 +241,13 @@ User_ID, Product_ID, Gender, Age, Occupation, City_Category, Stay_In_Current_Cit
 \end{table}
 
 After merging data it is observed that for Product Category 2 and 3 there are missing values as described in Table \ref{table:data-observation}.
+
+\section{Quering dataset}
+\include{notebook}
+
+
+\section{Intution from dataset}
+One can able to determine which product categories are popular among which area of city category so that that the retail store can focus on purchase/resell of product with more relevent category based on different gender, maritial status and age group.
+
+
 \end{document}
