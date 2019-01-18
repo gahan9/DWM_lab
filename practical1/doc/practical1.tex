@@ -142,7 +142,7 @@ Data mining can be performed on following types of data
 	\item Object-oriented and object-relational databases
 	\item Heterogeneous and legacy databases
 	\item Relational databases
-	\item Transactional and Spatial databases
+	\item Transnational and Spatial databases
 	\item Multimedia database
 	\item Text mining and Web mining
 	\item Data warehouses
@@ -152,7 +152,7 @@ Data mining can be performed on following types of data
 This practical aims towards data understanding to check that business and data-mining goals are established as well as to make it appropriate for data-mining goals if applicable.
 
 \subsection{Domain Identification}
-Data Mining can be used in diverse industries such as Retail market, Communications, Insurance, Education, Manufacturing, E-commerce, Banking, Bioinformatics, Crime Investigation etc.
+Data Mining can be used in diverse industries such as Retail market, Communications, Insurance, Education, Manufacturing, E-commerce, Banking, Bio-informatics, Crime Investigation etc.
 To achieve this goal this document  targets on the mining process on Retail market .
 \paragraph{} Data Mining techniques help \textbf{retail} malls and grocery stores to identify and arrange most sellable items in the most attentive positions. It helps store owners to comes up with various offers which encourages customers to spend more. 
 Also Note that the same scenario is also applicable to local retail stores as well as e-commerce stores with slightly differ in presenting the recommendation to customers.
@@ -242,12 +242,30 @@ User_ID, Product_ID, Gender, Age, Occupation, City_Category, Stay_In_Current_Cit
 
 After merging data it is observed that for Product Category 2 and 3 there are missing values as described in Table \ref{table:data-observation}.
 
-\section{Quering dataset}
+\section{Querying dataset}
 \include{notebook}
 
 
-\section{Intution from dataset}
-One can able to determine which product categories are popular among which area of city category so that that the retail store can focus on purchase/resell of product with more relevent category based on different gender, maritial status and age group.
+\section{Intuition from dataset : Possible problems and their solution}
+\subsection{Where to open new store?}
+\begin{enumerate}
+	\item Visualize data of trends for relative purchase and city category
+	\item Gather relative association between purchase and city
+	\item deduce location of opening store based on purchase amount and number of product sale
+\end{enumerate}
+
+\subsection{Marketing of new store $ \dots $}
+\begin{enumerate}
+	\item Gather trends of product category sales in city
+	\item Gather trends of product category sales among age groups
+	\item Gather trends of product category sales among gender
+	\item Gather trends of product category sales for different marital status
+	\item Plot relation between city, age groups, gender and marital status and market the sale of trending products
+\end{enumerate}
+
+\subsection{Predicting trends of product among different age group}
+One can able to determine which product categories are popular among which area of city category so that that the retail store can focus on purchase/resell of product with more relevant category based on different gender, marital status and age group.
+
 
 
 \end{document}
