@@ -1,0 +1,64 @@
+{
+    "dimensions": [
+        {
+         "name":"item",
+         "levels": [
+                {
+                    "name":"Age",
+                    "label":"Age",
+                    "attributes": ["Age"]
+                },
+                {
+                    "name":"Occupation",
+                    "label":"Occupation",
+                    "attributes": ["Occupation"]
+                },
+                {
+                    "name":"City_Category",
+                    "label":"City_Category",
+                    "attributes": ["City_Category"]
+                }
+            ]
+        },
+        {"name":"Stay_In_Current_City_Years", "role": "time"}
+    ],
+    "cubes": [
+        {
+            "name": "irbd_balance",
+            "dimensions": ["item", "Stay_In_Current_City_Years"],
+            "measures": [
+                {"name":"Purchase", "label":"Purchase"},
+                {"name":"double_Purchase", "label":"Double Purchase",
+                  "expression": "Purchase * 2"}
+            ],
+            "aggregates": [
+                    {
+                        "name": "Purchase_sum",
+                        "function": "sum",
+                        "measure": "Purchase"
+                    },
+                    {
+                        "name": "double_Purchase_sum",
+                        "expression": "sum(double_Purchase)"
+                    },
+                    {
+                        "name": "record_count",
+                        "function": "count"
+                    }
+                ],
+            "mappings": {
+                          "item.Age": "Age",
+                          "item.Occupation": "Occupation",
+                          "item.City_Category": "City_Category",
+                          "item.Stay_In_Current_City_Years": "Stay_In_Current_City_Years",
+                          "item.Marital_Status": "Marital_Status",
+                          "item.Product_Category_1": "Product_Category_1",
+                          "item.Purchase": "Purchase"
+                         },
+            "info": {
+                "min_date": "1910-01-01",
+                "max_date": "2019-12-31"
+            }
+        }
+    ]
+}
