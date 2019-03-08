@@ -27,11 +27,11 @@ print("\n"
       "Drill Down by Category (top-level Item hierarchy)\n"
       "==================================================")
 #
-result = browser.aggregate(drilldown=["item"])
+result = browser.aggregate(drilldown=["Age"])
 #
 print(("%-20s%10s%10s%10s\n"+"-"*50) % ("Category", "Count", "Total", "Double"))
 #
-for row in result.table_rows("item"):
+for row in result.table_rows("Age"):
     print("%-20s%10d%10d%10d" % ( row.label,
                               row.record["record_count"],
                               row.record["Purchase_sum"],
@@ -42,14 +42,14 @@ print("\n"
       "Slice where Category = Age group 0-17\n"
       "==================================================")
 
-cut = PointCut("item", ["0-17"])
+cut = PointCut("Age", ["0-17"])
 cell = Cell(browser.cube, cuts = [cut])
 
-result = browser.aggregate(cell, drilldown=["item"])
+result = browser.aggregate(cell, drilldown=["Age"])
 
 print(("%-20s%10s%10s%10s\n"+"-"*50) % ("Sub-category", "Count", "Total", "Double"))
 
-for row in result.table_rows("item"):
+for row in result.table_rows("Age"):
     print("%-20s%10d%10d%10d" % ( row.label,
                               row.record["record_count"],
                               row.record["Purchase_sum"],

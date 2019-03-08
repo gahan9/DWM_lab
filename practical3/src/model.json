@@ -1,7 +1,7 @@
 {
     "dimensions": [
         {
-         "name":"item",
+         "name":"Age",
          "levels": [
                 {
                     "name":"Age",
@@ -12,20 +12,28 @@
                     "name":"Occupation",
                     "label":"Occupation",
                     "attributes": ["Occupation"]
-                },
-                {
-                    "name":"City_Category",
-                    "label":"City_Category",
-                    "attributes": ["City_Category"]
                 }
             ]
         },
-        {"name":"Stay_In_Current_City_Years", "role": "time"}
+        {
+            "name":"Stay_In_Current_City_Years",
+            "role": "time"
+        },
+        {
+            "name": "Occupation",
+            "levels":[
+                {
+                  "name": "Occupation",
+                  "label": "Occupation",
+                  "attributes": ["Occupation"]
+                }
+            ]
+        }
     ],
     "cubes": [
         {
             "name": "irbd_balance",
-            "dimensions": ["item", "Stay_In_Current_City_Years"],
+            "dimensions": ["Age", "Stay_In_Current_City_Years", "Occupation"],
             "measures": [
                 {"name":"Purchase", "label":"Purchase"},
                 {"name":"double_Purchase", "label":"Double Purchase",
@@ -47,13 +55,13 @@
                     }
                 ],
             "mappings": {
-                          "item.Age": "Age",
-                          "item.Occupation": "Occupation",
-                          "item.City_Category": "City_Category",
-                          "item.Stay_In_Current_City_Years": "Stay_In_Current_City_Years",
-                          "item.Marital_Status": "Marital_Status",
-                          "item.Product_Category_1": "Product_Category_1",
-                          "item.Purchase": "Purchase"
+                          "Age.Age": "Age",
+                          "Age.Occupation": "Occupation",
+                          "Age.City_Category": "City_Category",
+                          "Age.Stay_In_Current_City_Years": "Stay_In_Current_City_Years",
+                          "Age.Marital_Status": "Marital_Status",
+                          "Age.Product_Category_1": "Product_Category_1",
+                          "Age.Purchase": "Purchase"
                          },
             "info": {
                 "min_date": "1910-01-01",
