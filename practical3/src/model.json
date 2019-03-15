@@ -7,17 +7,18 @@
                     "name":"Age",
                     "label":"Age",
                     "attributes": ["Age"]
-                },
-                {
-                    "name":"Occupation",
-                    "label":"Occupation",
-                    "attributes": ["Occupation"]
                 }
             ]
         },
         {
-            "name":"Stay_In_Current_City_Years",
-            "role": "time"
+            "name":"Product_Category",
+            "levels":[
+              {
+                "name": "Product_Category",
+                "label": "Product_Category",
+                "attributes": ["Product_Category"]
+              }
+            ]
         },
         {
             "name": "Occupation",
@@ -32,22 +33,16 @@
     ],
     "cubes": [
         {
-            "name": "irbd_balance",
-            "dimensions": ["Age", "Stay_In_Current_City_Years", "Occupation"],
+            "name": "black_friday",
+            "dimensions": ["Age", "Occupation", "Product_Category"],
             "measures": [
-                {"name":"Purchase", "label":"Purchase"},
-                {"name":"double_Purchase", "label":"Double Purchase",
-                  "expression": "Purchase * 2"}
+                {"name":"Purchase", "label":"Purchase"}
             ],
             "aggregates": [
                     {
                         "name": "Purchase_sum",
                         "function": "sum",
                         "measure": "Purchase"
-                    },
-                    {
-                        "name": "double_Purchase_sum",
-                        "expression": "sum(double_Purchase)"
                     },
                     {
                         "name": "record_count",
@@ -57,10 +52,7 @@
             "mappings": {
                           "Age.Age": "Age",
                           "Age.Occupation": "Occupation",
-                          "Age.City_Category": "City_Category",
-                          "Age.Stay_In_Current_City_Years": "Stay_In_Current_City_Years",
-                          "Age.Marital_Status": "Marital_Status",
-                          "Age.Product_Category_1": "Product_Category_1",
+                          "Age.Product_Category": "Product_Category",
                           "Age.Purchase": "Purchase"
                          },
             "info": {
