@@ -18,11 +18,11 @@ Quick start
 
 Prepare data::
 
-    python2.7 prepare_data.py
+    python prepare_data.py
 
 Get some aggregations::
 
-    python2.7 aggregate.py
+    python aggregate.py
 
 Hello Server!
 -------------
@@ -33,19 +33,19 @@ Run the server::
     
 Try the server. Aggregate::
 
-  curl "http://localhost:5000/cube/irbd_balance/aggregate"
+  curl "http://localhost:5000/cube/black_friday/aggregate"
     
 Aggregate by year::
 
-  curl "http://localhost:5000/cube/irbd_balance/aggregate?drilldown=year"
+  curl "http://localhost:5000/cube/black_friday/aggregate?drilldown=year"
 
 Aggregate by category (top level for dimension item)::
 
-  curl "http://localhost:5000/cube/irbd_balance/aggregate?drilldown=item" 
+  curl "http://localhost:5000/cube/black_friday/aggregate?drilldown=item" 
 
 Aggregate by subcategory for item category 'e'::
 
-  curl "http://localhost:5000/cube/irbd_balance/aggregate?drilldown=item&cut=item:e"
+  curl "http://localhost:5000/cube/black_friday/aggregate?drilldown=item&cut=item:e"
 
 Note the implicit hierarchy of the `item` dimension.
 

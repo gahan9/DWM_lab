@@ -1,0 +1,80 @@
+{
+    "dimensions": [
+        "date", 
+        "cpv", 
+        "procurer", 
+        "supplier", 
+        "process_type", 
+        "criteria", 
+        "geography"
+    ], 
+    "measures": [
+        {
+            "name": "contract_amount"
+        }
+    ], 
+    "aggregates": [
+        {
+            "name": "total_amount",
+            "label": "Contract amount",
+            "measure": "contract_amount",
+            "function": "sum"
+        },
+        {
+            "name": "average_amount",
+            "label": "Contract amount",
+            "measure": "contract_amount",
+            "function": "avg"
+        }
+    ],
+    "name": "contracts", 
+    "details": [
+        {
+            "name": "contract_name", 
+            "label": "Contract name"
+        }, 
+        {
+            "name": "bulletin_number", 
+            "label": "Bulletin number"
+        }, 
+        {
+            "name": "source_url", 
+            "label": "Source URL"
+        }
+    ], 
+    "joins": [
+        {
+            "master": "bulletin_date_id", 
+            "detail": "dm_date.id",
+            "method": "detail"
+        }, 
+        {
+            "master": "cpv_id", 
+            "detail": "dm_cpv.id"
+        }, 
+        {
+            "master": "procurer_id", 
+            "detail": "dm_procurer.id"
+        }, 
+        {
+            "master": "supplier_id", 
+            "detail": "dm_supplier.id"
+        }, 
+        {
+            "master": "process_type_id", 
+            "detail": "dm_process_type.id"
+        }, 
+        {
+            "master": "criteria_id", 
+            "detail": "dm_criteria.id"
+        }, 
+        {
+            "master": "geography_id", 
+            "detail": "dm_geography.id"
+        }
+    ], 
+    "mappings": {
+        "fact.date_id": "bulletin_date_id", 
+        "zmluva_hodnota": "zmluva_hodnota"
+    }
+}
