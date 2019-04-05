@@ -4,6 +4,9 @@ __pycache__/
 *.py[icod]
 *$py.class
 
+# other directories to skip
+term_paper/release/taxi_log_2008_by_id
+
 # Latex extension
 *.a
 *.aux
