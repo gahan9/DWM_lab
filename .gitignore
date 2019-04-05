@@ -8,10 +8,9 @@ __pycache__/
 *.a
 *.aux
 *.out
+*.b[bl][lg]
 *.synctex.gz
 _minted*
-*.bbl
-*.blg
 
 # C extensions
 *.so
@@ -236,3 +235,4 @@ pip-selfcheck.json
 .idea/
 
 .pytest_cache/
+.ipynb_checkpoints
