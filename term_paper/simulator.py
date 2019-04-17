@@ -10,7 +10,7 @@ def parseline(line):
         line = line[:-1]
     client_name, timestamp, latitude, longitude = line.split(',')
     latitude, longitude = float(latitude), float(longitude)
-    gh = geohash.encode(latitude, longitude, precision=10)
+    gh = geohash.encode(latitude, longitude, precision=3)
     return {
         'client': client_name,
         'geohash': gh,

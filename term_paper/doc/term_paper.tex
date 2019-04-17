@@ -1,0 +1,273 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% Data Warehouse and Mining
+% Term Paper Data Transformation
+%
+% web-guide : https://sites.google.com/a/nirmauni.ac.in/3cs1e23---data-warehousing-and-mining/home/academic-docs/list-of-practicals/practical---1?pli=1
+% Gahan M. Saraiya
+% 18MCEC10
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%       PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[paper=letter, fontsize=12pt]{article}
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+\usepackage{blindtext}
+\usepackage{graphicx} 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{bbding}  % to use custom itemize font
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+%\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\usepackage{titlesec} % Allows customization of titles
+
+\usepackage{makecell}
+\usepackage{longtable}
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+%----------------------------------------------------------------------------------------
+%       DATE FORMAT
+%----------------------------------------------------------------------------------------
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
+%----------------------------------------------------------------------------------------
+
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+
+
+%----------------------------------------------------------------------------------------
+%       TITLE SECTION
+%----------------------------------------------------------------------------------------
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Data Transformation}} % Article title
+\author{
+\large
+{\textsc{Gahan Saraiya (18MCEC10), Priyanka Bhati (18MCEC02) }}\\[2mm]
+%\thanks{A thank you or further information}\\ % Your name
+\normalsize \href{mailto:18mcec10@nirmauni.ac.in}{18mcec10@nirmauni.ac.in},\href{mailto:18mcec02@nirmauni.ac.in}{18mcec02@nirmauni.ac.in}\\[2mm] % Your email address
+}
+\date{}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdfauthor={Gahan Saraiya},
+	pdfcreator={Gahan Saraiya},
+	pdfproducer={Gahan Saraiya},
+}
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%       SET HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+\newcommand\theauthor{Gahan Saraiya}
+\newcommand\thesubject{Data Warehousing and Mining}
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\fancyhead[C]{Institute of Technology, Nirma University $\bullet$ \monthyeardate\today} % Custom header text
+\fancyfoot[LE,LO]{\thesubject}
+\fancyfoot[RO,LE]{Page \thepage} % Custom footer text
+%----------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\newcommand*\tick{\item[\Checkmark]}
+\newcommand*\arrow{\item[$\Rightarrow$]}
+\newcommand*\fail{\item[\XSolidBrush]}
+\usepackage{minted} % for highlighting code sytax
+\definecolor{LightGray}{gray}{0.9}
+
+\setminted[text]{
+	frame=lines, 
+	breaklines,
+	baselinestretch=1.2,
+	bgcolor=LightGray,
+%	fontsize=\small
+}
+
+\setminted[python]{
+	frame=lines, 
+	breaklines, 
+	linenos,
+	baselinestretch=1.2,
+%	bgcolor=LightGray,
+%	fontsize=\small
+}
+
+\begin{document}
+\maketitle % Insert title
+\thispagestyle{fancy} % All pages have headers and footers
+
+% REFER :-- https://www.guru99.com/data-mining-tutorial.html#2
+\section{Introduction}
+Data transformation is the process of converting/transforming data from one form\footnote{i.e. format for different data mining tools} or structure into another form or structure. Data transformation is critical to activities such as data integration and data management. Data transformation can include a range of activities such as: converting data types, data cleaning by removing null values or duplicate data, enrich the data, or perform aggregations, depending on the requirements of the project.
+
+A typical data transformation can be classified in two stages:
+\begin{itemize}
+	\item Stage 1
+		\begin{itemize}
+			\item Discovering the data and identify various sources and data types.
+			\item Find out the structure of data and data transformations that need to be performed.
+			\item Map data to define how individual fields are mapped, modified, joined, filtered, and aggregated.
+		\end{itemize}
+	\item Stage 2
+		\begin{itemize}
+			\item Extract data from the original source. 
+				\\ The range of sources can vary from structured sources like databases to non-structured sources such as streaming sources.
+			\item Do the transformation
+				\\ i.e. aggregating values, changing date formats, editing text or joining attributes.
+			\item Migrate this transformed data to data warehouse.			
+		\end{itemize}
+\end{itemize}
+
+\section{Transformation of Data}
+\subsection{Data Discovery}
+We have taken a dataset as described in Section \ref{section:experiments}.\ref{sample-data} for which we need to perform knowledge gain of user mobility with correlation between locations.
+
+\subsection{Data Structure}
+Data is a raw data of multiple text files (one file per taxi id) containing records of booking of taxi with timestamp and latitude and longitude of pickup location.
+
+\subsection{Extracting Data}
+To perform operation we will first combine these multiple data files into one single file containing all the record of \verb|taxi-id, latitude, longitude and timestamp|
+
+\subsection{Performing Transformation}
+The two attributes in dataset \ref{section:experiments}.\ref{sample-data}, latitude and longitude are concatenate together to form unique area with method known as geohash described in Section \ref{section:experiments}.\ref{geohash}.
+
+This will generate a file (as in \ref{section:experiments}.\ref{geo-hashed}) containing \verb|taxi-id, geohash and timestamp|
+
+\section{Data Visualization}
+Now we need to compute correlation between locations from our transformed data \ref{section:experiments}.\ref{geo-hashed}.
+
+To compute correlation we simply create dissimilarity between two records (which is considered as the timestamp).
+
+Visualization result is obtained as in Section \ref{section:experiments}.\ref{result} which contains \verb|geohash, geohash and dissimilarity|.
+
+
+
+\section{Experiment}\label{section:experiments}
+\subsection{Dataset}\label{sample-data}
+For the experiments we have taken a dataset of user mobility which contains data attributes as described below:
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{l | l | l}
+		Attribute & Data-type & Description
+		\\ \hline \hline
+		Taxi-id & Numerical (Integer) & unique id of each taxi
+		\\ \hline
+		Latitude & Discrete & latitude of pickup location
+		\\ \hline
+		Longitude & Discrete & longitude of pickup location
+		\\ \hline
+		Timestamp & date-time & time-stamp when taxi booked
+	\end{tabular}
+	\caption{Description of Dataset}
+\end{table}
+
+\subsubsection{Chunk 1}\label{chunk-1}
+\inputminted[firstline=0,lastline=10]{text}{../file1.txt}
+\subsubsection{Chunk 2}\label{chunk-2}
+\inputminted[firstline=2050,lastline=2060]{text}{../file1.txt}
+
+\subsection{Geohash}\label{geohash}
+The Geohash is the method for encoding regions with specific precision of latitude and longitude. 
+
+Geohashes offer properties like arbitrary precision and the possibility of gradually removing characters from the end of the code to reduce its size (and gradually lose precision).
+
+For example, the coordinate pair \verb|57.64911,10.40744| (near the tip of the peninsula of Jutland, Denmark) produces a slightly shorter hash of \verb|u4pruydqqvj|.
+
+Implementation of Geohash is described below:
+\subsubsection{Implementation}
+\inputminted{python}{../geohash.py}
+
+\subsubsection{Data File after applying geohash}\label{geo-hashed}
+\subsubsection{Chunk 1}\label{hash-chunk-1}
+\inputminted[firstline=0,lastline=10]{text}{../file2.txt}
+\subsubsection{Chunk 2}\label{hash-chunk-2}
+\inputminted[firstline=2050,lastline=2060]{text}{../file2.txt}
+
+\subsection{Implementation of Utilities for parsing data}\label{data-read}
+\inputminted{python}{../simulator.py}
+
+\subsection{Implementation of storing and transforming data}\label{data-transformation}
+\inputminted{python}{../main.py}
+
+\subsubsection{Result}\label{result}
+\begin{minted}{text}
+uzurgxvrvr,  uzurgxvrvr, 0.0
+uzurgxvrvr,  uzurgxvrvx, -204.0
+uzurgxvrvr,  uzurgxvrzx, -301.0
+uzurgxvrvr,  uzurgxvxbx, -506.0
+uzurgxvrvr,  uzurgxzpgx, -603.0
+uzurgxvrvr,  uzurgzbpgz, -808.0
+uzurgxvrvr,  uzurgzbrvx, -905.0
+uzurgxvrvr,  uzurgzvpbp, -1109.0
+uzurgxvrvr,  uzurgzvxfx, -1206.0
+uzurgxvrvr,  uzurupgxfx, -1411.0
+\end{minted}
+$ \vdots $
+\\ $ \vdots $
+\begin{minted}{text}
+uzurupurvr,  uzururczyp, 5400.0
+uzurupurvr,  uzururbxux, 4800.0
+uzurupurvr,  uzururvzzz, 4199.0
+uzurupurvr,  uzuruxcpvz, 3599.0
+uzurupurvr,  uzuruxvzgr, 3000.0
+uzurupurvr,  uzururuxbx, 2400.0
+uzurupurvr,  uzuruxvpfr, 1800.0
+uzurupurvr,  uzururcrzr, 1200.0
+uzurupurvr,  uzurupbpyx, 600.0
+uzurupurvr,  uzurupurvr, 0.0
+\end{minted}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{l | l | l}
+		Attribute & Data-type & Description
+		\\ \hline \hline
+		Area & geohash & hashed location value
+		\\ \hline
+		Area & geohash & hashed location value
+		\\ \hline
+		Dissimilarity & Float value & Float value containing difference of epoch timestamp
+	\end{tabular}
+	\caption{Description of final result: dissimilarity between location}
+\end{table}
+
+\section{Conclusion}
+
+\end{document}

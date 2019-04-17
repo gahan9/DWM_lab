@@ -18,20 +18,25 @@ def generate_file_2():
 def parseline(line):
     if line[-1] == '\n':
         line = line[:-1]
-    client_name, geohash, timestamp = line.split(',')
+    taxi_id, geohash, timestamp = line.split(',')
     epoch_time = datetime.strptime(timestamp, ' %Y-%m-%d %H:%M:%S').timestamp()
-    return geohash, epoch_time
+    return geohash, epoch_time, taxi_id
 
 def generate_file_3():
     with open('file3.txt', 'w') as write_file:
+        skip_n = 0
         with open('file2.txt', 'r') as file1:
             for file1_line in file1.readlines():
+                skip_n += 1
                 dataset1 = parseline(file1_line)
                 with open('file2.txt', 'r') as file2:
+                    line_no = 0
                     for file2_line in file2.readlines():
-                        dataset2 = parseline(file2_line)
-                        write_file.write("{}, {}, {}\n".format(
-                             dataset1[0], dataset2[0], dataset1[1] - dataset2[1]))
+                        line_no += 1
+                        if line_no > skip_n:
+                            dataset2 = parseline(file2_line)
+                            write_file.write("{}, {}, {}\n".format(
+                                dataset1[0], dataset2[0], dataset1[1] - dataset2[1]))
 
 
 if __name__ == '__main__':
