@@ -50,7 +50,7 @@ def get_sequential_data(precision):
             line = fp.__next__()
 
 # Print iterations progress
-def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '='):
     """
     Call in a loop to create terminal progress bar
     @params:
