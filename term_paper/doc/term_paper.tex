@@ -138,19 +138,19 @@ Data transformation is the process of converting/transforming data from one form
 A typical data transformation can be classified in two stages:
 \begin{itemize}
 	\item Stage 1
-		\begin{itemize}
-			\item Discovering the data and identify various sources and data types.
-			\item Find out the structure of data and data transformations that need to be performed.
-			\item Map data to define how individual fields are mapped, modified, joined, filtered, and aggregated.
-		\end{itemize}
+	\begin{itemize}
+		\item Discovering the data and identify various sources and data types.
+		\item Find out the structure of data and data transformations that need to be performed.
+		\item Map data to define how individual fields are mapped, modified, joined, filtered, and aggregated.
+	\end{itemize}
 	\item Stage 2
-		\begin{itemize}
-			\item Extract data from the original source. 
-				\\ The range of sources can vary from structured sources like databases to non-structured sources such as streaming sources.
-			\item Do the transformation
-				\\ i.e. aggregating values, changing date formats, editing text or joining attributes.
-			\item Migrate this transformed data to data warehouse.			
-		\end{itemize}
+	\begin{itemize}
+		\item Extract data from the original source. 
+		\\ The range of sources can vary from structured sources like databases to non-structured sources such as streaming sources.
+		\item Do the transformation
+		\\ i.e. aggregating values, changing date formats, editing text or joining attributes.
+		\item Migrate this transformed data to data warehouse.			
+	\end{itemize}
 \end{itemize}
 
 \section{Transformation of Data}
@@ -227,30 +227,47 @@ Implementation of Geohash is described below:
 
 \subsubsection{Result}\label{result}
 \begin{minted}{text}
-uzurgxvrvr,  uzurgxvrvr, 0.0
-uzurgxvrvr,  uzurgxvrvx, -204.0
-uzurgxvrvr,  uzurgxvrzx, -301.0
-uzurgxvrvr,  uzurgxvxbx, -506.0
-uzurgxvrvr,  uzurgxzpgx, -603.0
-uzurgxvrvr,  uzurgzbpgz, -808.0
-uzurgxvrvr,  uzurgzbrvx, -905.0
-uzurgxvrvr,  uzurgzvpbp, -1109.0
-uzurgxvrvr,  uzurgzvxfx, -1206.0
-uzurgxvrvr,  uzurupgxfx, -1411.0
+2-2,  uzurg,  uzuru, -1411.0 
+2-2,  uzurg,  uzuru, -1508.0 
+2-2,  uzurg,  uzuru, -1713.0 
+2-2,  uzurg,  uzuru, -1810.0 
+2-2,  uzurg,  uzuru, -1810.0 
+2-2,  uzurg,  uzuru, -2111.0 
+2-2,  uzurg,  uzurf, -10466.0 
+2-2,  uzurg,  uzurf, -10723.0 
+2-2,  uzurg,  uzurf, -10768.0 
+2-2,  uzurg,  uzurf, -11025.0 
 \end{minted}
 $ \vdots $
-\\ $ \vdots $
 \begin{minted}{text}
-uzurupurvr,  uzururczyp, 5400.0
-uzurupurvr,  uzururbxux, 4800.0
-uzurupurvr,  uzururvzzz, 4199.0
-uzurupurvr,  uzuruxcpvz, 3599.0
-uzurupurvr,  uzuruxvzgr, 3000.0
-uzurupurvr,  uzururuxbx, 2400.0
-uzurupurvr,  uzuruxvpfr, 1800.0
-uzurupurvr,  uzururcrzr, 1200.0
-uzurupurvr,  uzurupbpyx, 600.0
-uzurupurvr,  uzurupurvr, 0.0
+2-4,  uzurg,  uzuru, -397746.0 
+2-4,  uzurg,  uzuru, -398347.0 
+2-4,  uzurg,  uzuru, -398947.0 
+2-4,  uzurg,  uzuru, -399546.0 
+2-4,  uzurg,  uzuru, -400146.0 
+2-4,  uzurg,  uzuru, -400746.0 
+2-4,  uzurg,  uzuru, -401946.0 
+2-4,  uzurg,  uzuru, -402546.0 
+2-4,  uzurg,  uzuru, -403146.0 
+2-4,  uzurg,  uzuru, -403745.0 
+2-4,  uzurg,  uzuru, -404345.0 
+2-4,  uzurg,  uzuru, -404945.0 
+2-4,  uzurg,  uzuru, -405546.0 
+2-4,  uzurg,  uzuru, -406146.0 
+2-4,  uzurg,  uzuru, -406745.0 
+\end{minted}
+$ \vdots $
+\begin{minted}{text}
+5-5,  uzuru,  uzurf, -229832.0 
+5-5,  uzuru,  uzurf, -230432.0 
+5-5,  uzuru,  uzurf, -231032.0 
+5-5,  uzuru,  uzurf, -231632.0 
+5-5,  uzuru,  uzurf, -232232.0 
+5-5,  uzuru,  uzurf, -232832.0 
+5-5,  uzuru,  uzurf, -233431.0 
+5-5,  uzuru,  uzurf, -234031.0 
+5-5,  uzuru,  uzurf, -234631.0 
+5-5,  uzuru,  uzurf, -235231.0 
 \end{minted}
 
 \begin{table}[H]
@@ -259,6 +276,8 @@ uzurupurvr,  uzurupurvr, 0.0
 	\begin{tabular}{l | l | l}
 		Attribute & Data-type & Description
 		\\ \hline \hline
+		taxi-id-taxi-id & string & ids of two taxis separated by hyphen
+		\\ \hline
 		Area & geohash & hashed location value
 		\\ \hline
 		Area & geohash & hashed location value
@@ -269,5 +288,9 @@ uzurupurvr,  uzurupurvr, 0.0
 \end{table}
 
 \section{Conclusion}
+The technique geohash which we have used for data transformation gives the dissimilarity with
+greater precision. But this precision leads to higher computation cost which is the major drawback.
+So to reduce the computation cost the value of precision needs to be decreased to reduce
+computational cost.
 
 \end{document}
